@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		*{
+    		margin: 0;
+    		padding: 0;
+    	}
+    	#container{
+    		height: 200px;
+    		width: 200px;
+    		position: relative;
+    		left: -200px;
+    		background-color: #6effcd;
+		}
+		#btn{
+    		height: 60px;
+    		width: 30px;
+   	 		position: absolute;
+    		left: 200px;
+    		top: 75px;
+    		background-color: #73eeff;
+    		text-align:center;
+    		
+		}
+	</style>
+	<script type="text/javascript">
+		
+	window.onload = function(){
+		var container=document.getElementById('container');
+		var btn=document.getElementById('btn');
+		btn.onclick = function(){
+  			if(container.offsetLeft==-200){
+      			move(10,0);
+  			}else{
+      			move(-10,-200);
+  			}
+		}
+	}
+		var timer="";
+		function move(speed,itarget){
+  			clearInterval(timer);
+  			timer=setInterval(function(){
+  			if(container.offsetLeft == itarget)
+  			{
+     		 clearInterval(timer);
+  			}else{
+      			container.style.left=container.offsetLeft+speed+'px';
+  			}
+  		},30);
+	}
+
+//		function moveBack(){
+//			clearInterval(timer);
+//			timer=setInterval(function(){
+//			if(container.offsetLeft == -200)
+//			{
+//    		clearInterval(timer);
+//			}
+//			else{
+//    		container.style.left=container.offsetLeft-10+'px';
+//			}
+//		},30);
+//	}
+	</script>
+</head>
+<body>
+	<div id="container">
+      <span id="btn">分享</span>
+  </div>
+</body>
+</html>
